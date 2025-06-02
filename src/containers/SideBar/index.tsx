@@ -12,7 +12,7 @@ const SideBar = () => {
   // Lista de categorias incluindo 'Todos' para mostrar todos contatos
   const categorias = [
     'All',
-    'Important',
+    'Favorits',
     'Family',
     'Friends',
     'Work',
