@@ -5,16 +5,28 @@ const EstiloGlobal = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "WDXL Lubrifont TC", Roboto;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body {
+    background-color: rgb(30, 30, 40);
+    color: #f5f5f5;
+  }
+
+  button, input, select {
+    font-family: inherit;
   }
 `
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 300px auto;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+  overflow: hidden;
 `
 
 export const ContainerCenter = styled.div`
+  max-width: ;
   margin: 0 auto;
 `
 
