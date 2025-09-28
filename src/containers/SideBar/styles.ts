@@ -5,9 +5,8 @@ interface AsideProps {
 }
 
 export const Aside = styled.aside<AsideProps>`
-  padding: 24px;
+  padding: 20px;
   background-color: rgb(38, 38, 48);
-  display: flex;
   height: 100vh;
   overflow-y: auto;
   border-right: 1px solid #333;

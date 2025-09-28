@@ -9,7 +9,7 @@ const SideBar = () => {
   const dispatch = useDispatch()
   const active = useSelector((state: RootState) => state.contacts.filter)
   const counts = useSelector(selectTagCounts)
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
   // Lista de categorias incluindo 'Todos' para mostrar todos contatos
   const categorias = [
