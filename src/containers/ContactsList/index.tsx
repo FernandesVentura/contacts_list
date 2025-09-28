@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import ContactCard, { Contact } from '../../components/Contact'
 
+import { Content } from './styles'
+
 type Props = {
   onEditContact: (contact: Contact) => void
 }
@@ -13,8 +15,10 @@ const ContactsList = ({ onEditContact }: Props) => {
     filter === 'All' ? list : list.filter((c) => c.category === filter)
 
   return (
-    <main style={{ padding: 24 }}>
-      <p style={{ marginBottom: 12 }}>Contats ({filtered.length})</p>
+    <Content>
+      <p style={{ marginBottom: 12, textAlign: 'right' }}>
+        Contats ({filtered.length})
+      </p>
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {filtered.map((contact) => (
           <ContactCard
@@ -24,7 +28,7 @@ const ContactsList = ({ onEditContact }: Props) => {
           />
         ))}
       </ul>
-    </main>
+    </Content>
   )
 }
 

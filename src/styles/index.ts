@@ -23,6 +23,9 @@ export const Container = styled.div`
   grid-template-columns: 300px 1fr;
   height: 100vh;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+  display: block;
 `
 
 export const ContainerCenter = styled.div`

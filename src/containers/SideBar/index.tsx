@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CardFilter from '../../components/CardFilter'
 import * as S from './styles'
@@ -8,6 +9,7 @@ const SideBar = () => {
   const dispatch = useDispatch()
   const active = useSelector((state: RootState) => state.contacts.filter)
   const counts = useSelector(selectTagCounts)
+  const [open, setOpen] = useState(true)
 
   // Lista de categorias incluindo 'Todos' para mostrar todos contatos
   const categorias = [
@@ -20,9 +22,13 @@ const SideBar = () => {
     'SOS'
   ]
 
+  const handleOverlayClick = () => setOpen(false)
+
   return (
-    <S.Aside>
-      <div>
+    <>
+      <S.Hamburguer onClick={() => setOpen(!open)}>☰</S.Hamburguer>
+      {open && <S.Overlay onClick={handleOverlayClick} />}
+      <S.Aside $open={open}>
         <S.Filtros>
           {categorias.map((cat) => (
             <CardFilter
@@ -34,12 +40,15 @@ const SideBar = () => {
                   : counts[cat] || 0
               }
               ativo={active === cat}
-              onClick={() => dispatch(setFilter(cat))}
+              onClick={() => {
+                dispatch(setFilter(cat))
+                setOpen(false)
+              }}
             />
           ))}
         </S.Filtros>
-      </div>
-    </S.Aside>
+      </S.Aside>
+    </>
   )
 }
 
